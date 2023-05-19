@@ -15,7 +15,7 @@ async function renderMessage(group, id) {
 async function renderMessages() {
   const urlParams = new URLSearchParams(window.location.search);
   const group = urlParams.get('group') || 'cryptonear';
-  let messageIds = await getMessageIds(group);
+  let messageIds = urlParams.get('messageIds') || await getMessageIds(group);
   for (let id of messageIds) {
     await renderMessage(group, id);
   }
