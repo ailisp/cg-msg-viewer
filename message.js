@@ -9,6 +9,9 @@ async function renderMessage(group, id) {
 const urlParams = new URLSearchParams(window.location.search);
 const group = urlParams.get('group') || 'cryptonear';
 let id = urlParams.get('id');
-const iframe = document.createElement('iframe');
-iframe.src = 'https://t.me/'+group+'/'+id+'?embed=1&userpic=true';
-document.body.appendChild(iframe);
+// const iframe = document.createElement('iframe');
+// iframe.src = 'https://t.me/'+group+'/'+id+'?embed=1&userpic=true';
+// document.body.appendChild(iframe);
+renderMessage(group, id);
+document.getElementById("loading").remove();
+
