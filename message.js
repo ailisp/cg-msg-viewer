@@ -20,7 +20,10 @@ async function main() {
     let id = urlParams.get('id');
     await renderMessage(group, id);
     document.getElementById("loading").remove();
-    await addIframeResizer();
+    // await addIframeResizer();
+    if ('parentIFrame' in window) {
+        parentIFrame.size(document.body.scrollHeight); // Set height to 100px
+    }
 }
 
 main();
