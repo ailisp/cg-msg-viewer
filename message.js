@@ -6,12 +6,26 @@ async function renderMessage(group, id) {
     document.body.appendChild(script);
 }
 
-const urlParams = new URLSearchParams(window.location.search);
-const group = urlParams.get('group') || 'cryptonear';
-let id = urlParams.get('id');
+async function addIframeResizer() {
+    // <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.6/iframeResizer.contentWindow.js"></script>
+    const script = document.createElement('script');
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.6/iframeResizer.contentWindow.js";
+    script.async = true;
+    document.body.appendChild(script);
+}
+
+async function main() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const group = urlParams.get('group') || 'cryptonear';
+    let id = urlParams.get('id');
+    await renderMessage(group, id);
+    document.getElementById("loading").remove();
+    await addIframeResizer();
+}
+
+
 // const iframe = document.createElement('iframe');
 // iframe.src = 'https://t.me/'+group+'/'+id+'?embed=1&userpic=true';
 // document.body.appendChild(iframe);
-renderMessage(group, id);
-document.getElementById("loading").remove();
+
 
