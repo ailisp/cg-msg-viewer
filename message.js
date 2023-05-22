@@ -20,12 +20,12 @@ async function renderMessage(group, id) {
     renderMessage(group, id).then(()=>{
     document.getElementById("loading").remove();
     // await addIframeResizer();
-    if ('parentIFrame' in window) {
-        console.log('aaa', document.body.scrollHeight);
-        parentIFrame.size(document.body.scrollHeight); // Set height to 100px
-    } else {
-        console.log('no')
-    }
+    // if ('parentIFrame' in window) {
+    //     console.log('aaa', document.body.scrollHeight);
+    //     parentIFrame.size(document.body.scrollHeight); // Set height to 100px
+    // } else {
+    //     console.log('no')
+    // }
 })
 // }
 
