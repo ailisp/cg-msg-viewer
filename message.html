@@ -10,7 +10,7 @@
     <script>
       window.iFrameResizer = {
         heightCalculationMethod: function() {
-          console.log('bbb');
+          console.log('bbb', document.documentElement.clientHeight);
           console.log(document.body.scrollHeight);
           return document.body.scrollHeight;
         }
