@@ -23,6 +23,7 @@ async function main() {
     await addIframeResizer();
 }
 
+main();
 
 // const iframe = document.createElement('iframe');
 // iframe.src = 'https://t.me/'+group+'/'+id+'?embed=1&userpic=true';
