@@ -6,19 +6,18 @@ async function renderMessage(group, id) {
     document.body.appendChild(script);
 }
 
-async function addIframeResizer() {
-    // <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.6/iframeResizer.contentWindow.js"></script>
-    const script = document.createElement('script');
-    script.src = "https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.6/iframeResizer.contentWindow.js";
-    script.async = true;
-    document.body.appendChild(script);
-}
+// async function addIframeResizer() {
+//     const script = document.createElement('script');
+//     script.src = "https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.6/iframeResizer.contentWindow.js";
+//     script.async = true;
+//     document.body.appendChild(script);
+// }
 
-async function main() {
+// async function main() {
     const urlParams = new URLSearchParams(window.location.search);
     const group = urlParams.get('group') || 'cryptonear';
     let id = urlParams.get('id');
-    await renderMessage(group, id);
+    renderMessage(group, id).then(()=>{
     document.getElementById("loading").remove();
     // await addIframeResizer();
     if ('parentIFrame' in window) {
@@ -27,9 +26,10 @@ async function main() {
     } else {
         console.log('no')
     }
-}
+})
+// }
 
-main();
+// main();
 
 // const iframe = document.createElement('iframe');
 // iframe.src = 'https://t.me/'+group+'/'+id+'?embed=1&userpic=true';
